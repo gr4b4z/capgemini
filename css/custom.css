@@ -1,12 +1,16 @@
 /* Header */
 .main-header .logo {
-
+    background-color: #0c1015 !important;
 }
 .main-header .logo img {
 
 }
 .main-header .logo-lg, .main-header .logo-mini{
     
+}
+
+.main-header .navbar{
+    background-color: #0c1015 !important;
 }
 /* Sidebar Toggle */
 div.wrapper .main-sidebar {

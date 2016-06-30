@@ -36,7 +36,7 @@
     </bundle:variable>
     <section class="content-header">
         <span class="small-box-custom ${typeVariables[0]}">
-            <h1><i class="fa ${typeVariables[1]}"></i> My ${type}</h1>
+            <h1><i class="fa ${typeVariables[1]}"></i>${type}</h1>
         </span>
         <ol class="breadcrumb">
             <li><a href="${bundle.kappLocation}">
