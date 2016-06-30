@@ -2,6 +2,11 @@
 .main-header .logo {
     background-color: #0c1015 !important;
 }
+@media screen and (min-width:768px) {
+    .main-header .logo {
+        box-shadow: inset 0px -40px 25px -40px #86c3ff;
+    }
+}
 .main-header .logo img {
 
 }
@@ -10,6 +15,7 @@
 }
 
 .main-header .navbar{
+    box-shadow: inset 0px -40px 25px -40px #86c3ff;
     background-color: #0c1015 !important;
 }
 /* Sidebar Toggle */
