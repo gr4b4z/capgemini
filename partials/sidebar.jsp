@@ -67,7 +67,15 @@
                 </c:choose>
                 <!-- /.search form -->
             </li>
-            <li class="header">CATEGORIES</li>
+            <li class="header">Marketplace Catalog</li>
+            <li class="view-all-categories">
+                <!-- Sidebar toggle button-->
+                <a href="${bundle.kappLocation}?page=categories" >
+                    <i class="fa fa-sitemap"></i>
+                    <span>View all categories</span>
+                    <i class="fa fa-angle-right pull-right"></i>
+                </a>
+            </li>
             <%-- For each of the categories --%>
             <c:forEach items="${CategoryHelper.getCategories(kapp)}" var="category">
                 <c:set var="formsStatusActive" value="${FormHelper.getFormsByStatus(category.category,'Active')}"/>
@@ -96,14 +104,6 @@
                     </a>
                 </li>
             </c:if>
-             <li class="view-all-categories">
-                <!-- Sidebar toggle button-->
-                <a href="${bundle.kappLocation}?page=categories" >
-                    <i class="fa fa-sitemap"></i>
-                    <span>View all categories</span>
-                    <i class="fa fa-angle-right pull-right"></i>
-                </a>
-            </li>
             <li class="sidebar-include-toggle">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle hidden-xs text-right" data-toggle="offcanvas" role="button">

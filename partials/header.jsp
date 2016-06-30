@@ -21,7 +21,6 @@
                     <strong class="pull-right">
                         <c:choose>
                             <c:when test="${not empty space.getAttribute('Company Logo')}">
-                                ${space.getAttributeValue('Company Logo')}
                                 <div class="small">${kapp.name}</div>
                             </c:when>
                             <c:otherwise>

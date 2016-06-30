@@ -106,6 +106,8 @@ input[type='text'], input[type='password'], textarea, select {
 input[type='text'], input[type='password'], select {
   /*height: 2.6rem;*/ }
 
+section.page > form:first-of-type {
+  padding: 2rem; }
 section.page form {
   margin-left: 0;
   padding: 2.4rem;
@@ -232,7 +234,7 @@ form button, form input[type='submit'], form input[type='button'], .btn, section
   background-color: #00427e;
   color: #ffffff; }
   .btn-primary:hover {
-    background-color: #005db1}
+    background-color: #005db1; }
 
 .btn-primary-complement {
   background-color: #ffffff;
@@ -251,6 +253,9 @@ form button, form input[type='submit'], form input[type='button'], .btn, section
   color: #ffb200; }
   .btn-secondary-complement:hover {
     background-color: #1a1a1a; }
+
+body {
+  display: none; }
 
 .btn-tertiary {
   background-color: #7cb5ec;
@@ -1258,3 +1263,5 @@ ul.unstyled {
 
 .display-inline-block {
   display: inline-block; }
+
+/*# sourceMappingURL=master-bundle.css.map */

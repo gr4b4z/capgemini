@@ -84,7 +84,9 @@ form button, form input[type='submit'], form input[type='button'], .btn {
     background-color: tint($secondary-complement, 10%);
   }
 }
-
+body{
+    display: none;
+}
 .btn-tertiary {
   @extend .btn;
   
@@ -106,3 +108,4 @@ form button, form input[type='submit'], form input[type='button'], .btn {
     background-color: tint($tertiary-complement, 10%);
   }
 }
+

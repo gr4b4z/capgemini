@@ -26,7 +26,7 @@
             <c:set scope="request" var="tileClass" value="col-sm-${tileCount}"/>
             <%-- Header --%>
             <section class="content-header">
-                <h1>Market Place</h1>
+                <h1>Marketplace</h1>
                 <ol class="breadcrumb">
                     <li><a href="#">
                         <i class="fa fa-home"></i> 

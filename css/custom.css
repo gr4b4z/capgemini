@@ -155,3 +155,16 @@ section.page form .required label.control-label:after {
 .warning .required {
   font-weight: bold; 
 }
+
+/*Form Override*/
+.radio-horizontal > label:not(:last-child){
+    margin-right: 1em;
+}
+
+.radio-horizontal > label:not(:first-child){
+    display: inline-block !important;
+}
+
+section.page  form:first-of-type{
+    padding: 1em;
+}
