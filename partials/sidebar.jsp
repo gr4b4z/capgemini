@@ -7,6 +7,36 @@
     <section class="sidebar">
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
+            <li <c:if test="${activePage eq 'home'}">class="active"</c:if> >
+                <a href="${bundle.kappLocation}">
+                    <i class="fa fa-home"></i> <span>Home</span>
+                </a>
+            </li>
+            <li <c:if test="${activePage eq 'all-request'}">class="active"</c:if> >
+                <a href="${bundle.kappLocation}?page=submissions&type=all-request">
+                    <i class="fa fa-shopping-cart"></i> <span>All Requests</span>
+                </a>
+            </li>
+            <li <c:if test="${activePage eq 'requests'}">class="active"</c:if> >
+                <a href="${bundle.kappLocation}?page=submissions&type=requests">
+                    <i class="fa fa-thumbs-o-up"></i> <span>My Requests</span>
+                </a>
+            </li>
+<!--            <li <c:if test="${activePage eq 'approval'}">class="active"</c:if> >
+                <a href="${bundle.kappLocation}?page=submissions&type=approval">
+                    <i class="fa fa-tasks"></i> <span>My Approvals</span>
+                </a>
+            </li>-->
+            <li <c:if test="${activePage eq 'server'}">class="active"</c:if> >
+                <a href="${bundle.kappLocation}?page=submissions&type=server">
+                    <i class="fa fa-tasks"></i> <span>Server</span>
+                </a>
+            </li>
+            <li <c:if test="${activePage eq 'work-order'}">class="active"</c:if> >
+                <a href="${bundle.spaceLocation}/${kapp.slug}/help">
+                    <i class="fa fa-life-ring"></i> <span>Help</span>
+                </a>
+            </li>
             <li>
                 <!-- search form -->
                 <c:choose>
@@ -36,45 +66,6 @@
                     </c:when>
                 </c:choose>
                 <!-- /.search form -->
-            </li>
-            <li <c:if test="${activePage eq 'home'}">class="active"</c:if> >
-                <a href="${bundle.kappLocation}">
-                    <i class="fa fa-home"></i> <span>Home</span>
-                </a>
-            </li>
-            <li <c:if test="${activePage eq 'request'}">class="active"</c:if> >
-                <a href="${bundle.kappLocation}?page=submissions&type=request">
-                    <i class="fa fa-shopping-cart"></i> <span>My Requests</span>
-                </a>
-            </li>
-            <li <c:if test="${activePage eq 'approval'}">class="active"</c:if> >
-                <a href="${bundle.kappLocation}?page=submissions&type=approval">
-                    <i class="fa fa-thumbs-o-up"></i> <span>My Approvals</span>
-                </a>
-            </li>
-            <li <c:if test="${activePage eq 'work-order'}">class="active"</c:if> >
-                <a href="${bundle.kappLocation}?page=submissions&type=work-order">
-                    <i class="fa fa-tasks"></i> <span>My Tasks</span>
-                </a>
-            </li>
-            <c:if test="${BundleHelper.checkKappAndForm('admin','user-assets')}">
-                <li <c:if test="${param['type'] eq 'assets'}">class="active"</c:if> >
-                    <a href="${bundle.kappLocation}?page=bridgedsubmissions&type=assets">
-                        <i class="fa fa-thumbs-o-up"></i> <span>My Assets</span>
-                    </a>
-                </li>
-            </c:if>
-            <c:if test="${BundleHelper.checkKappAndForm('knowledge','knowledge')}">
-                <li <c:if test="${activePage eq 'approval'}">class="active"</c:if> >
-                    <a href="${bundle.kappLocation}?page=#">
-                        <i class="fa fa-questionmark"></i> <span>Knowledge Base</span>
-                    </a>
-                </li>
-            </c:if>
-            <li <c:if test="${activePage eq 'work-order'}">class="active"</c:if> >
-                <a href="${bundle.spaceLocation}/${kapp.slug}/help">
-                    <i class="fa fa-life-ring"></i> <span>Help</span>
-                </a>
             </li>
             <li class="header">CATEGORIES</li>
             <%-- For each of the categories --%>

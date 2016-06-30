@@ -3,7 +3,7 @@
 
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">My Requests</h3>
+        <h3 class="box-title">All Requests</h3>
     </div><!-- /.box-header -->
     <div class="box-body">
         <table class="table table-hover datatable nosearch">
@@ -42,7 +42,10 @@
                             </c:choose>
                         </td>
                         <td data-moment>${submission.createdAt}</td>
-                        <td><span class="label ${statusColor}">${submission.coreState}</span></td>
+                        <td>
+                        <c:if test="${submission.form.getField('Status') != null}">
+                            <span class="label ${statusColor}">${submission.form.getField('Status')}</span>
+                        </c:if> </td>
                     </tr>
                 </c:forEach>
             </tbody>

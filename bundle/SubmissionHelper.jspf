@@ -79,7 +79,28 @@
             return submissionComponent.searchByKapp(searchKappObj, searchOptions);
         };
 
-        public List<Submission> approvalAlertsSubmissions() {
+        public List<Submission> retrieveSubmissionsByCompany(String searchKapp, String company){
+            return retrieveSubmissionsByCompany(searchKapp, company, null);
+        };
+        
+        public List<Submission> retrieveSubmissionsByCompany(String searchKapp, String company, Integer number){
+
+            java.util.Map<String,String[]> searchOptions = new java.util.HashMap<>();
+
+            searchOptions.put("coreState", new String[] {"Submitted","Closed"});
+            if (number != null) {
+                searchOptions.put("limit", new String[] {String.valueOf(number)});
+            }
+
+            if (kapp.getFieldByName(company) != null){
+                searchOptions.put("values[Company]", new String[] {company});
+            }
+
+            Kapp searchKappObj = space.getKapp(searchKapp);
+            return submissionComponent.searchByKapp(searchKappObj, searchOptions);
+        };
+
+        public List<Submission> approvalAlertsSubmissions() {       
             com.kineticdata.core.authentication.Identity identity =
                 (com.kineticdata.core.authentication.Identity) request.getAttribute("identity");
 

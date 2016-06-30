@@ -13,7 +13,7 @@
                 <title>Kinetic Data ${text.escape(kapp.name)}</title>
             </bundle:variable>
             <!-- Set variable used to count and display submissions -->
-            <c:set scope="request" var="submissionsList" value="${SubmissionHelper.retrieveRecentSubmissions('Service', 'Submitted', 999)}"/>
+            <c:set scope="request" var="submissionsList" value="${SubmissionHelper.retrieveSubmissionsByCompany(kapp.slug, 'Calbro Services', 5)}"/>
 
             <%-- Set class for number of tiles displayed --%>
             <c:set var="tileCount" value="3" />
@@ -26,9 +26,7 @@
             <c:set scope="request" var="tileClass" value="col-sm-${tileCount}"/>
             <%-- Header --%>
             <section class="content-header">
-                <h1>
-                    Enterprise Request Management System
-                </h1>
+                <h1>Market Place</h1>
                 <ol class="breadcrumb">
                     <li><a href="#">
                         <i class="fa fa-home"></i> 
@@ -45,7 +43,7 @@
                         <div class="small-box bg-aqua">
                             <div class="inner">
                                 <h3>${fn:length(submissionsList)}</h3>
-                                <p>My Requests</p>
+                                <p>All Requests</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-shopping-cart"></i>
@@ -59,7 +57,7 @@
                         <div class="small-box bg-green">
                             <div class="inner">
                                 <h3>${fn:length(SubmissionHelper.retrieveRecentSubmissions('Approval', 'Draft',999))}</h3>
-                                <p>My Approvals</p>
+                                <p>My Requests</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-thumbs-o-up"></i>
@@ -68,12 +66,26 @@
                         </div>
                     </div><!-- ./col -->
                     
+<!--                    <div class="${tileClass}">
+                         small box 
+                        <div class="small-box bg-maroon">
+                            <div class="inner">
+                                <h3>${fn:length(SubmissionHelper.retrieveRecentSubmissionsByKapp(space.getAttributeValue('QApp Slug'), 'Draft', 999))}</h3>
+                                <p>My Approvals</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-tasks"></i>
+                            </div>
+                            <a target="_blank" href="${bundle.spaceLocation}/${space.getAttributeValue('QApp Slug')}#/queue/filter/__default__" class="small-box-footer">View Your Tasks <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div> ./col -->
+                    
                     <div class="${tileClass}">
                         <!-- small box -->
                         <div class="small-box bg-maroon">
                             <div class="inner">
                                 <h3>${fn:length(SubmissionHelper.retrieveRecentSubmissionsByKapp(space.getAttributeValue('QApp Slug'), 'Draft', 999))}</h3>
-                                <p>My Tasks</p>
+                                <p>Server</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-tasks"></i>
@@ -81,42 +93,6 @@
                             <a target="_blank" href="${bundle.spaceLocation}/${space.getAttributeValue('QApp Slug')}#/queue/filter/__default__" class="small-box-footer">View Your Tasks <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div><!-- ./col -->
-
-                    <c:if test="${BundleHelper.checkKappAndForm('admin','user-asset')}">
-                        <c:set var="params" value="${BridgedResourceHelper.map()}"/>
-                        <c:set target="${params}" property="User" value="${identity.username}"/>
-                        <c:set scope="request" var="assetList" value="${BridgedResourceHelper.search('User Assets',params)}"/>
-                        <div class="${tileClass}">
-                            <!-- small box -->
-                            <div class="small-box bg-yellow">
-                                <div class="inner">
-                                    <h3>${fn:length(assetList)}</h3>
-                                    <p>My Assets</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-mobile"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div><!-- ./col -->
-                    </c:if>
-                    <c:if test="${BundleHelper.checkKappAndForm('knowledge','knowledge')}">
-                        <c:set scope="request" var="rkmList" value=""/>
-                        <div class="${tileClass}">
-                            <!-- small box -->
-                            <div class="small-box bg-red">
-                                <div class="inner">
-                                    <h3>${rkmList}</h3>
-                                    <p>Knowledge Base</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-lightbulb-o"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div><!-- ./col -->
-                    </c:if>
-
                     <div class="${tileClass}">
                         <!-- small box -->
                         <div class="small-box bg-orange">
