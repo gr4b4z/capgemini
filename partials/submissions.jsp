@@ -42,16 +42,21 @@
                             </c:choose>
                         </td>
                         <td data-moment>${submission.createdAt}</td>
-                        <td>
-                        <c:if test="${submission.form.getField('Status') != null}">
-                            <span class="label ${statusColor}">${submission.getValue('Status')}</span>
-                        </c:if> </td>
+                        
+                        <c:choose>
+                            <c:when test="${submission.form.getField('Status') != null  && submission.getValue('Status') != null}">
+                                <td><span class="label ${statusColor}">${submission.getValue('Status')}</span></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td><span class="label ${statusColor}">${submission.coreState}</span></td>
+                            </c:otherwise>
+                        </c:choose>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
     </div><!-- /.box-body -->
     <div class="box-footer text-center">
-        <a href="${bundle.kappLocation}?page=submissions&type=request" class="uppercase">View All Requests</a>
+        <a href="${bundle.kappLocation}?page=submissions&type=request" class="uppercase">View All Of Your Requests</a>
     </div><!-- /.box-footer -->
 </div>

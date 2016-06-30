@@ -10,23 +10,23 @@
 </c:choose>
 <c:set var="paramtype" value="${Text.defaultIfBlank(param['type'],'request')}" />
 <c:choose>
-    <c:when test="${paramtype eq 'approval'}">
+    <c:when test="${paramtype eq 'requests'}">
         <c:set scope="request" var="openSubmissionsList" value="${SubmissionHelper.retrieveRecentSubmissions('Approval', 'Draft', 1000)}"/>
         <c:set scope="request" var="closedSubmissionsList" value="${SubmissionHelper.retrieveRecentSubmissions('Approval', 'Closed',1000)}"/>
-        <c:set scope="request" var="type" value="Approvals"/>
+        <c:set scope="request" var="type" value="My Requests"/>
         <c:set scope="page" var="typeVariables" value="${['bg-green','fa-thumbs-o-up']}"/>
     </c:when>
-    <c:when test="${paramtype eq 'work-order'}">
+    <c:when test="${paramtype eq 'server'}">
         <c:set scope="request" var="openSubmissionsList" value="${SubmissionHelper.retrieveRecentSubmissionsByKapp(space.getAttributeValue('QApp Slug'), 'Draft', 999)}"/>
         <c:set scope="request" var="closedSubmissionsList" value="${SubmissionHelper.retrieveRecentSubmissionsByKapp(space.getAttributeValue('QApp Slug'), 'Closed',1000)}"/>
-        <c:set scope="request" var="type" value="Tasks"/>
+        <c:set scope="request" var="type" value="Servers"/>
         <c:set scope="page" var="typeVariables" value="${['bg-maroon','fa-tasks']}"/>
     </c:when>
     <c:otherwise>
         <c:set scope="request" var="openSubmissionsList" value="${SubmissionHelper.retrieveRecentSubmissions('Service', 'Submitted',1000)}"/>
         <c:set scope="request" var="closedSubmissionsList" value="${SubmissionHelper.retrieveRecentSubmissions('Service', 'Closed',1000)}"/>
         <c:set scope="request" var="draftSubmissionsList" value="${SubmissionHelper.retrieveRecentSubmissions('Service', 'Draft',1000)}"/>
-        <c:set scope="request" var="type" value="Requests"/>
+        <c:set scope="request" var="type" value="All Requests"/>
         <c:set scope="page" var="typeVariables" value="${['bg-aqua','fa-shopping-cart']}"/>
     </c:otherwise>
 </c:choose>
@@ -43,7 +43,7 @@
                 <i class="fa fa-home"></i> 
                 Home</a>
             </li>
-            <li class="active">My ${type}</li>
+            <li class="active">${type}</li>
         </ol>
     </section>
 

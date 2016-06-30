@@ -48,7 +48,7 @@
                             <div class="icon">
                                 <i class="fa fa-shopping-cart"></i>
                             </div>
-                            <a href="${bundle.kappLocation}?page=submissions&type=request" class="small-box-footer">View Your Requests <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="${bundle.kappLocation}?page=submissions" class="small-box-footer">View All Requests <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div><!-- ./col -->
 
@@ -62,7 +62,7 @@
                             <div class="icon">
                                 <i class="fa fa-thumbs-o-up"></i>
                             </div>
-                            <a href="${bundle.kappLocation}?page=submissions&type=approval" class="small-box-footer">View Your Approvals <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="${bundle.kappLocation}?page=submissions&type=requests" class="small-box-footer">View Your Request<i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div><!-- ./col -->
                     
@@ -85,12 +85,12 @@
                         <div class="small-box bg-maroon">
                             <div class="inner">
                                 <h3>${fn:length(SubmissionHelper.retrieveRecentSubmissionsByKapp(space.getAttributeValue('QApp Slug'), 'Draft', 999))}</h3>
-                                <p>Server</p>
+                                <p>Servers</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-tasks"></i>
                             </div>
-                            <a target="_blank" href="${bundle.spaceLocation}/${space.getAttributeValue('QApp Slug')}#/queue/filter/__default__" class="small-box-footer">View Your Tasks <i class="fa fa-arrow-circle-right"></i></a>
+                           <a href="${bundle.kappLocation}?page=submissions&type=server" class="small-box-footer">View Servers<i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div><!-- ./col -->
                     <div class="${tileClass}">

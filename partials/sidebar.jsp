@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li <c:if test="${activePage eq 'all-request'}">class="active"</c:if> >
-                <a href="${bundle.kappLocation}?page=submissions&type=all-request">
+                <a href="${bundle.kappLocation}?page=submissions">
                     <i class="fa fa-shopping-cart"></i> <span>All Requests</span>
                 </a>
             </li>
