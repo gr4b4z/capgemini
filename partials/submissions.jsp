@@ -44,7 +44,7 @@
                         <td data-moment>${submission.createdAt}</td>
                         <td>
                         <c:if test="${submission.form.getField('Status') != null}">
-                            <span class="label ${statusColor}">${submission.form.getField('Status')}</span>
+                            <span class="label ${statusColor}">${submission.getValue('Status')}</span>
                         </c:if> </td>
                     </tr>
                 </c:forEach>
