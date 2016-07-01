@@ -16,26 +16,16 @@
         <span class="logo-lg">
             <c:choose>
                 <%-- Check to See if Company Logo / Name Attributes Exists --%>
-                <c:when test="${not empty space.getAttribute('Company Logo')}">
+                <c:when test="${not empty kapp.getAttribute('Company Logo')}">
                     <img class="pull-left" src="${BundleHelper.getLogo(kapp)}" alt="logo" style="display:block; max-height:40px; margin:5px;">
-                    <strong class="pull-right">
-                        <c:choose>
-                            <c:when test="${not empty space.getAttribute('Company Logo')}">
-                                <div class="small">${kapp.name}</div>
-                            </c:when>
-                            <c:otherwise>
-                                ${kapp.name}
-                            </c:otherwise>
-                        </c:choose>
-                    </strong>
                 </c:when>
+
                 <%-- If no logo attribute exists, display the Company or KAPP Name --%>
                 <c:otherwise>
                     <i class="fa fa-home"></i> 
                     <c:choose>
                         <c:when test="${not empty space.getAttribute('Company Name')}">
                            ${space.getAttributeValue('Company Name')}
-                           <div class="small">${kapp.name}</div>
                         </c:when>
                         <c:otherwise>
                             ${kapp.name}

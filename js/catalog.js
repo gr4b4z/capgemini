@@ -77,7 +77,6 @@
             columnDefs: [
                 {
                     render: function ( cellData, type, row ) {
-                        debugger;
                         var span = $('<a>').attr('href', 'javascript:void(0);');
                         var iso8601date = cellData;
                         $(span).text(moment(iso8601date).fromNow())
@@ -143,7 +142,6 @@
             var usesearch = $(this).hasClass("nosearch") ? false:true ;
             $(this).css("width:100%");
             var tabId = $(this).closest('div.tab-pane').attr('id');
-            debugger;
             bundle.submissions.tableObjects[tabId] = $(this).DataTable({
                 "paging": false,
                 "lengthChange": false,
